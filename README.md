@@ -13,8 +13,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Adding Components, Services, Modules, etc
 
 When generating a new addition, be sure to add the class path to name of the new addition so it is added to the appropriate folder
-EX. When creating a new Component the cli command should look like: 
-
+<br/><br/>EX. When creating a new Component the cli command should look like:  
 `ng g c components/[component-name]`
 
 ## Build
