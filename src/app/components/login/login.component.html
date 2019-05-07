@@ -1,0 +1,30 @@
+<div class='col-4 mt-5 pt-5 container-fluid' style='height: 500px;'>
+  <mat-card class='h-75'>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class='pl-4 pr-5 align-items-center'>
+      <form class='w-100' #loginForm='ngForm'>
+        <mat-form-field class='w-100' appearance='outline'>
+          <mat-icon matPrefix color='primary'>account_box</mat-icon>
+          <input matInput placeholder='Email' [(ngModel)]='user.email' name='email' #email='ngModel' required
+            pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'>
+
+          <mat-error *ngIf='email.invalid || !email.pristine'>Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class='w-100 mt-4' appearance='outline'>
+          <mat-icon matPrefix color='primary'>https</mat-icon>
+          <input matInput type='password' placeholder='Password' [(ngModel)]='user.password' name='password'
+            #password='ngModel' required minlength='8' maxlength='12'>
+
+          <mat-error *ngIf='password.invalid || !password.pristine'>Invalid password</mat-error>
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]='rememberMe' name='rememberMe' #name='ngModel'>Remember me?</mat-checkbox>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class='mr-4' align='end'>
+      <button mat-raised-button type='submit' color='primary' (click)='Login()'>Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
