@@ -1,16 +1,23 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AngMaterialModule } from './modules/ang-material/ang-material.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent
       ],
+      imports: [
+        AngMaterialModule,
+        FormsModule,
+        RouterTestingModule
+      ]
+     
     }).compileComponents();
   }));
 
@@ -23,13 +30,6 @@ describe('AppComponent', () => {
   it(`should have as title 'temp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('temp');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to temp!');
+    expect(app.title).toEqual('Screen Force');
   });
 });

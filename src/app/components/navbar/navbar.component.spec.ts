@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngMaterialModule } from 'src/app/modules/ang-material/ang-material.module';
 import { NavbarComponent } from './navbar.component';
+import { HomeComponent } from '../home/home.component';
+import { LoginComponent } from '../login/login.component';
+import { SearchComponent } from '../search/search.component';
+import { CandidatesComponent } from '../candidates/candidates.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +15,19 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [
+        NavbarComponent,
+        HomeComponent,
+        LoginComponent,
+        SearchComponent,
+        CandidatesComponent
+      ],
+      imports: [
+        AngMaterialModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
   }));
