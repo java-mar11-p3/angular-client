@@ -5,10 +5,10 @@
   </button>
 
   <span style=" flex: 1 1 auto;"></span>
-  <button mat-button type="button" [matMenuTriggerFor]="menu">
+  <button mat-button type="button" *ngIf='loggedIn' [matMenuTriggerFor]="menu">
     <mat-icon>reorder</mat-icon>
   </button>
   <mat-menu #menu>
-
+    <button mat-menu-item type='button' (click)='Logout()'>Logout</button>
   </mat-menu>
 </mat-toolbar>

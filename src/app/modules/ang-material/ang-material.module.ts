@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -26,7 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule,
+    MatPaginatorModule
   ]
 })
 export class AngMaterialModule { }
