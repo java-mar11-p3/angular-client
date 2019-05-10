@@ -18,6 +18,31 @@ When generating a new addition, be sure to add the class path to name of the new
 
 ## Backend URLs
 
+Eureka Server
+
+http:/domain-name:8086
+
+Gateway
+
+http:/domain-name:7000/
+
+User Service
+
+POST: http://domain-name:7000/userservice/users/login
+
+Candidate Service
+
+GET: http://domain-name:7000/candidateservice/candidates
+GET: http://domain-name:7000/candidateservice/candidates/{id}
+POST: http://domain-name:7000/candidateservice/candidates
+
+Screening Service
+
+GET: http://domain-name:7000/screeningservice/screenings (Retrieve all screenings)
+GET: http://domain-name:7000/screeningservice/screenings/{id} (Retriever screening by id)
+POST: http://domain-name:7000/screeningservice/screenings (Add screening to database)
+PUT: http://domain-name:7000/screeningservice/screenings/{id} (Update screening)
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
