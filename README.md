@@ -32,16 +32,16 @@ POST: http://domain-name:7000/userservice/users/login
 
 Candidate Service
 
-GET: http://domain-name:7000/candidateservice/candidates
-GET: http://domain-name:7000/candidateservice/candidates/{id}
-POST: http://domain-name:7000/candidateservice/candidates
+- GET: http://domain-name:7000/candidateservice/candidates
+- GET: http://domain-name:7000/candidateservice/candidates/{id}
+- POST: http://domain-name:7000/candidateservice/candidates
 
 Screening Service
 
-GET: http://domain-name:7000/screeningservice/screenings 
-GET: http://domain-name:7000/screeningservice/screenings/{id} 
-POST: http://domain-name:7000/screeningservice/screenings 
-PUT: http://domain-name:7000/screeningservice/screenings/{id} 
+- GET: http://domain-name:7000/screeningservice/screenings 
+- GET: http://domain-name:7000/screeningservice/screenings/{id} 
+- POST: http://domain-name:7000/screeningservice/screenings 
+- PUT: http://domain-name:7000/screeningservice/screenings/{id} 
 
 ## Build
 
