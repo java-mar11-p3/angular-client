@@ -38,10 +38,10 @@ POST: http://domain-name:7000/candidateservice/candidates
 
 Screening Service
 
-GET: http://domain-name:7000/screeningservice/screenings (Retrieve all screenings)
-GET: http://domain-name:7000/screeningservice/screenings/{id} (Retriever screening by id)
-POST: http://domain-name:7000/screeningservice/screenings (Add screening to database)
-PUT: http://domain-name:7000/screeningservice/screenings/{id} (Update screening)
+GET: http://domain-name:7000/screeningservice/screenings 
+GET: http://domain-name:7000/screeningservice/screenings/{id} 
+POST: http://domain-name:7000/screeningservice/screenings 
+PUT: http://domain-name:7000/screeningservice/screenings/{id} 
 
 ## Build
 
