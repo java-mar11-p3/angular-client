@@ -33,8 +33,9 @@ POST: http://domain-name:7000/userservice/users/login
 Candidate Service
 
 - GET: http://domain-name:7000/candidateservice/candidates
-- GET: http://domain-name:7000/candidateservice/candidates/{id}
 - POST: http://domain-name:7000/candidateservice/candidates
+- GET: http://domain-name:7000/candidateservice/candidates/{id}
+
 
 Screening Service
 
