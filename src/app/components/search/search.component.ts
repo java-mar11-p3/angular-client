@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { CandidatesComponent } from '../candidates/candidates.component';
 
 @Component({
   selector: 'app-search',
@@ -7,16 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  public search: string = '';
+  @ViewChild('searchForm') searchForm: NgForm;
+  @ViewChild(CandidatesComponent) candidatesComponent: CandidatesComponent;
+
+  public textFilter: string = '';
+  public selectedUser: User;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
-
   public onSubmit() {
-    console.log(this.search);
-    this.search = '';
+
+    this.candidatesComponent.filterCandidates();
+    this.textFilter = '';
   }
 }

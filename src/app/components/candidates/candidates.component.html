@@ -1,3 +1,11 @@
-<p>
-  {{search}}
-</p>
+<div class='bg-light text-light container-fluid py-2'>
+  <mat-card *ngFor='let c of candidates' class='w-100 mb-2'>
+    <mat-card-header>
+      <button mat-flat-button (click)='onSelect(c)'>
+        <mat-card-title>
+          {{c.first}}
+        </mat-card-title>
+      </button>
+    </mat-card-header>
+  </mat-card>
+</div>

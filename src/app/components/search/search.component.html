@@ -4,8 +4,8 @@
       <form class='w-100' #searchForm='ngForm' (ngSubmit)='onSubmit()'>
         <mat-form-field class='w-50'>
           <mat-icon matPrefix color='primary'>search</mat-icon>
-          <input matInput placeholder="Search" [(ngModel)]='search' name='term'>
-          <button mat-flat-button matSuffix color='primary' type="submit">Search</button>
+          <input matInput placeholder="Search" [(ngModel)]='textFilter' name='term'>
+          <button mat-flat-button matSuffix color='primary' type='submit'>Search</button>
         </mat-form-field>
       </form>
 
@@ -16,7 +16,7 @@
     </mat-toolbar-row>
 
   </mat-toolbar>
-  <app-candidates [search]='search'></app-candidates>
+  <app-candidates [textFilter]='textFilter'></app-candidates>
   <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </div>
