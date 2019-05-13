@@ -15,6 +15,9 @@ import { DiscoverService } from './services/discover.service';
 import { GatewayService } from './services/gateway.service';
 import { ScreeningService } from './services/screening.service';
 import { UserService } from './services/user.service';
+import { CreateScreeningComponent } from './components/create-screening/create-screening.component';
+import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component';
+import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { UserService } from './services/user.service';
     NavbarComponent,
     HomeComponent,
     CandidatesComponent,
-    SearchComponent
+    SearchComponent,
+    CreateScreeningComponent,
+    CreateCandidateComponent,
+    AllCandidatesComponent
   ],
   imports: [
     BrowserModule,

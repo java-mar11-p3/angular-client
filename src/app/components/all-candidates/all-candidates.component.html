@@ -1,0 +1,29 @@
+<h1 style="color:white">Viewing All Candidates</h1>
+<button mat-raised-button color='primary' routerLink='/home'>Return Home</button>
+
+<table style="color:white" id="tableToView" class="table">
+  <tr>
+    <th class="text-center">Candidate ID</th>
+    <th class="text-center">First Name</th>
+    <th class="text-center">Last Name</th>
+    <th class="text-center">Email</th>
+    <th class="text-center">Create New Screening</th>
+    <th class="text-center">View Profile</th>
+  </tr>
+  <tr *ngFor="let candidate of listOfCandidates ; index as i">
+        <td class="text-center">{{ candidate.candidate_id }}</td>
+        <td class="text-center">{{ candidate.firstName }}</td>
+        <td class="text-center">{{ candidate.lastName }}</td>
+        <td class="text-center">{{ candidate.email }}</td>
+        <td class="text-center"> <button class="btn btn-primary btn-md" (click)="saveCandidateId()" id="candidate-id" value={{candidate.candidate_id}}>Create New Screening</button></td>
+        <td class="text-center"><a class="btn btn-primary" href=''>View Candidate Profile</a></td>
+  </tr>
+      
+  
+  
+</table>
+
+
+
+
+

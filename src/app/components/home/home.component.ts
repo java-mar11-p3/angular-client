@@ -10,14 +10,24 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  firstName : string = localStorage.getItem("firstName");
 
-  constructor(private auth: AuthService, private route: Router, private title: Title) { }
+  
+  
+
+  constructor(private auth: AuthService, private route: Router, private title: Title) {
+   }
+  
 
   ngOnInit() {
+
+    let userId = localStorage.getItem("userId");
+    console.log(sessionStorage.getItem(userId))
     this.title.setTitle('Screen Force - Home');
     if (!this.auth.isLoggedIn()) {
       this.route.navigateByUrl('login');
     }
+
   }
 
 }
