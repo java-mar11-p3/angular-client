@@ -10,9 +10,9 @@ import { HttpHeaders } from '@angular/common/http';
 export class UserService {
 
   //Path to api
-  readonly APP_PATH: string = 'http://localhost:7000/userservice';
+  private readonly APP_PATH: string = 'http://localhost:7000/userservice';
 
-  readonly options = {
+  private readonly options = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json'

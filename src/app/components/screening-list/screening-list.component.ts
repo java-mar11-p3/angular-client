@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Screening } from 'src/app/models/screening';
-import { User } from 'src/app/models/user';
-import { ScreeningService } from 'src/app/services/screening.service';
+import { GatewayService } from 'src/app/services/gateway.service';
 
 @Component({
   selector: 'app-screening-list',
@@ -18,11 +17,10 @@ export class ScreeningListComponent implements OnInit {
     { screeningNotes: 'Bob' }
   ];
 
-  constructor(private service: ScreeningService) { }
+  constructor(private service: GatewayService) { }
 
   ngOnInit() {
     this.screenings = this.testScreenings;
-    
   }
 
   public filterCandidates() {

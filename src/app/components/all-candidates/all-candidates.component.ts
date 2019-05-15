@@ -23,9 +23,7 @@ export class AllCandidatesComponent implements OnInit {
         this.listOfCandidates = data;
         console.log(data)
       },
-      error => {
-        alert(error)
-      }
+      error => console.error(error)
     )
   }
 
