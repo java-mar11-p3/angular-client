@@ -11,7 +11,7 @@ import { MatButton } from '@angular/material';
   styleUrls: ['./all-candidates.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
-  
+
   listOfCandidates: Candidate[];
   @Input() public textFilter: string;
   @Input() public textFilterType: string;
@@ -34,9 +34,7 @@ export class AllCandidatesComponent implements OnInit {
   }
 
   saveCandidateId() {
-    var inputValue = (<HTMLInputElement>document.getElementById("candidate-id")).value;
-    sessionStorage.setItem('candidateId', inputValue);
-    this.router.navigateByUrl("createScreening");
+
   }
 
   public filterCandidates() {

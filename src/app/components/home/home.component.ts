@@ -3,8 +3,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { User } from 'src/app/models/user';
-import { SearchComponent } from '../search/search.component';
-
 
 @Component({
   selector: 'app-home',
@@ -21,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com');
     this.title.setTitle('Screen Force - Home');
     if (!this.auth.isLoggedIn()) {
-      this.route.navigateByUrl('login');
+      // this.route.navigateByUrl('login');
     }
 
     // this.searchComponent.candidatesComponent.selectedUserChange.subscribe(

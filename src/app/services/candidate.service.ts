@@ -10,17 +10,22 @@ import { HttpHeaders } from '@angular/common/http';
 export class CandidateService {
 
   //Path to api
-  readonly APP_PATH: string = '';
+  readonly APP_PATH: string = 'http://localhost:7000/candidateservice/candidates';
+
+  readonly options = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+    })
+  };
 
   constructor(private http: HttpClient) { }
 
-  public createCandidate(candidate: Candidate){
-    const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }).set('content-type', 'application/json');
-    return this.http.post<any>('http://localhost:7000/candidateservice/candidates', JSON.stringify(candidate), {headers});
+  public createCandidate(candidate: Candidate) {
+    return this.http.post<any>(this.APP_PATH, JSON.stringify(candidate), this.options);
   }
 
-  public loadAllCandidates(){
-    const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }).set('content-type', 'application/json');
-    return this.http.get<Candidate[]>('http://localhost:7000/candidateservice/candidates/', {headers});
+  public loadAllCandidates() {
+    return this.http.get<Candidate[]>(this.APP_PATH, this.options);
   }
 }
