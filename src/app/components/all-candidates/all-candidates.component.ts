@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Candidate } from 'src/app/models/candidate';
 import { Router } from '@angular/router';
@@ -11,11 +11,11 @@ import { MatButton } from '@angular/material';
   styleUrls: ['./all-candidates.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
+  listOfCandidates: Candidate[];
+  @Input() public textFilter: string;
+  @Input() public textFilterType: string;
 
   // @ViewChild('candidateId') canId: any;
-
-  listOfCandidates: Candidate[];
-
 
   constructor(private service: GatewayService, private router: Router) { }
 
@@ -32,10 +32,27 @@ export class AllCandidatesComponent implements OnInit {
     
   }
 
-  saveCandidateId(candidate: any) {
-    console.log(candidate.candidate_id);
-    sessionStorage.setItem("candidateId", null);
+  saveCandidateId() {
+    var inputValue = (<HTMLInputElement>document.getElementById("candidate-id")).value;
+    sessionStorage.setItem('candidateId', inputValue);
     this.router.navigateByUrl("createScreening");
+  }
+
+  public filterCandidates() {
+    console.log('Test Filter Info: ', {
+      'textFilterType': this.textFilterType,
+      'textFilter': this.textFilter
+    });
+    let temp: Candidate[] = [];
+    this.listOfCandidates.forEach(
+      (c) => {
+        if (c.first.toLowerCase().includes(this.textFilter.toLowerCase()))
+          temp.push(c);
+      }
+    );
+
+    console.log(temp);
+    this.listOfCandidates = temp;
   }
 
 }

@@ -6,7 +6,7 @@ import { AngMaterialModule } from 'src/app/modules/ang-material/ang-material.mod
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from '../search/search.component';
-import { CandidatesComponent } from '../candidates/candidates.component';
+import { ScreeningListComponent } from '../screening-list/screening-list.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -18,7 +18,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         LoginComponent,
         SearchComponent,
-        CandidatesComponent
+        ScreeningListComponent
        ],
       imports: [        
         AngMaterialModule,

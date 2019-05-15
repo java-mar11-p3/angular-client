@@ -5,7 +5,7 @@ import { NavbarComponent } from './navbar.component';
 import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from '../login/login.component';
 import { SearchComponent } from '../search/search.component';
-import { CandidatesComponent } from '../candidates/candidates.component';
+import { ScreeningListComponent } from '../screening-list/screening-list.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
@@ -20,7 +20,7 @@ describe('NavbarComponent', () => {
         HomeComponent,
         LoginComponent,
         SearchComponent,
-        CandidatesComponent
+        ScreeningListComponent
       ],
       imports: [
         AngMaterialModule,

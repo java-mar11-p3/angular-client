@@ -12,27 +12,22 @@ import { SearchComponent } from '../search/search.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  firstName : string = localStorage.getItem("firstName");
-
-  @ViewChild(SearchComponent) searchComponent: SearchComponent;
-
-   public user: User = new User();
+  public user: User = new User();
 
   constructor(private auth: AuthService, private route: Router, private title: Title) { }
 
   ngOnInit() {
 
-    let userId = localStorage.getItem("userId");
-    console.log(sessionStorage.getItem(userId))
+    this.user = JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com');
     this.title.setTitle('Screen Force - Home');
     if (!this.auth.isLoggedIn()) {
       this.route.navigateByUrl('login');
     }
 
-    this.searchComponent.candidatesComponent.selectedUserChange.subscribe(
-      data => this.user = data || JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com'),
-      err => console.error(err)
-    );
+    // this.searchComponent.candidatesComponent.selectedUserChange.subscribe(
+    //   data => this.user = data || JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com'),
+    //   err => console.error(err)
+    // );
   }
 
 

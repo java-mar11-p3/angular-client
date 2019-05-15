@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CandidatesComponent } from './components/candidates/candidates.component';
+import { ScreeningListComponent } from './components/screening-list/screening-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -25,7 +25,7 @@ import { AllCandidatesComponent } from './components/all-candidates/all-candidat
     LoginComponent,
     NavbarComponent,
     HomeComponent,
-    CandidatesComponent,
+    ScreeningListComponent,
     SearchComponent,
     CreateScreeningComponent,
     CreateCandidateComponent,

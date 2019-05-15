@@ -23,8 +23,8 @@ export class CreateScreeningComponent implements OnInit {
   }
 
   submit(){
-    this.screening.user_id = localStorage.getItem("userId");
-    this.screening.candidate_id = sessionStorage.getItem("candidateId");
+    this.screening.user_id = +sessionStorage.getItem("userId");
+    this.screening.candidate_id = +sessionStorage.getItem("candidateId");
     this.service.createScreening(this.screening).subscribe(
       data => {
         if(data == null )
