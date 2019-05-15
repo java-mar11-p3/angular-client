@@ -17,20 +17,15 @@ export class CreateScreeningComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Screen Force - New Screening')
-    let userId = localStorage.getItem("userId");
-    console.log(userId);
-    console.log(sessionStorage.getItem("candidateId"));
+
   }
 
-  submit(){
-    this.screening.user_id = + JSON.parse(localStorage.getItem("USER")).id;
-    console.log("This is current user id" + this.screening.user_id)
-    this.screening.candidate_id = +sessionStorage.getItem("candidateId");
+  submit() {
+    this.screening.userId = + JSON.parse(localStorage.getItem("USER")).user_id;
+    this.screening.candidate_id = + sessionStorage.getItem("candidateId");
     this.service.createScreening(this.screening).subscribe(
       data => {
-        if(data == null )
-        {
-          alert("New screening was successfully created!");
+        if (data == null) {
           this.router.navigateByUrl('home')
         }
         else {
@@ -38,7 +33,7 @@ export class CreateScreeningComponent implements OnInit {
         }
       }
     )
-    
+
 
   }
 }

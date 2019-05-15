@@ -39,12 +39,13 @@ export class LoginComponent implements OnInit {
 
   /**Handles logic related to User Login*/
   public Login() {
-    console.log("hello");
+
     this.service.login(this.user).subscribe(
       data => this.message = data,
       err => console.error(err),
       () => {
         if (this.message['email']) {
+          this.user = this.message;
           this.auth.login(this.user);
           localStorage.removeItem('USER_EMAIL');
           if (this.rememberMe) {

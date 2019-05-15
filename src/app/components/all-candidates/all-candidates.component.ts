@@ -31,8 +31,15 @@ export class AllCandidatesComponent implements OnInit {
     
   }
 
-  saveCandidateId() {
+  saveCandidateId(candidate) {
+    
+    sessionStorage.setItem("candidateId", candidate.candidate_id)
+    this.router.navigateByUrl('createScreening');
+  }
 
+  viewCandidate(candidate) {
+    sessionStorage.setItem("candidateId", candidate.candidate_id)
+    this.router.navigateByUrl('candidateProfile');
   }
 
   public filterCandidates() {

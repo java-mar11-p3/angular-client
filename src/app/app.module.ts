@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
 import { CreateScreeningComponent } from './components/create-screening/create-screening.component';
 import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component';
 import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component';
+import { CandidateProfileComponent } from './components/candidate-profile/candidate-profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AllCandidatesComponent } from './components/all-candidates/all-candidat
     SearchComponent,
     CreateScreeningComponent,
     CreateCandidateComponent,
-    AllCandidatesComponent
+    AllCandidatesComponent,
+    CandidateProfileComponent
   ],
   imports: [
     BrowserModule,

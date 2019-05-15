@@ -1,0 +1,20 @@
+
+<table style="color:white" id="tableToView" class="table">
+  <tr>
+    <th class="text-center">Candidate ID</th>
+    <th class="text-center">First Name</th>
+    <th class="text-center">Last Name</th>
+    <th class="text-center">Email</th>
+    <th class="text-center">Create New Screening</th>
+    <th class="text-center">View Profile</th>
+  </tr>
+<tr *ngFor="let screening of listOfScreenings">
+  <td class="text-center">{{ screening.id }}</td>
+  <td class="text-center">{{ screening.screeningScore }}</td>
+  <td class="text-center">{{ screening.screeningNotes }}</td>
+  
+  <td class="text-center"> <button (click)="saveCandidateId(screening)">Create
+      New Screening</button></td>
+  <td class="text-center"><button (click)="viewCandidate(screening)">View Candidate Profile</button></td>
+</tr>
+</table>

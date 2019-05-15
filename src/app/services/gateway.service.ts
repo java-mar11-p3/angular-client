@@ -56,4 +56,8 @@ export class GatewayService {
   public loadScreeningsById(id: number): Observable<Object> {
     return this.screeningService.getScreeningsById(id);
   }
+
+  public loadScreeningsByCandidateId(candidateId): Observable<any>{
+    return this.screeningService.getScreeningsByCandidateId(candidateId);
+  }
 }

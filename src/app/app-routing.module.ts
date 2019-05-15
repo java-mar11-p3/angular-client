@@ -6,6 +6,7 @@ import { AuthGuard } from './security/auth.guard';
 import { CreateScreeningComponent } from './components/create-screening/create-screening.component'
 import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component'
 import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component'
+import { CandidateProfileComponent } from './components/candidate-profile/candidate-profile.component'
 
 //, canActivate: [AuthGuard]
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'createScreening', component: CreateScreeningComponent },
   { path: 'createCandidate', component: CreateCandidateComponent },
-  { path: 'allCandidates', component: AllCandidatesComponent }
+  { path: 'allCandidates', component: AllCandidatesComponent },
+  { path: 'candidateProfile', component: CandidateProfileComponent }
 ];
 
 @NgModule({
