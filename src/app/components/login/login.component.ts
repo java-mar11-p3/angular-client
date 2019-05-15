@@ -34,10 +34,12 @@ export class LoginComponent implements OnInit {
 
   /**Handles logic related to User Login*/
   public Login() {
+    console.log("hello");
     this.service.login(this.user).subscribe(
       data => {
         if(data !== null && data.user_id > 0 )
         {
+
           localStorage.setItem("userId", data.user_id)
           localStorage.setItem("firstName", data.firstName)
           let userId = localStorage.getItem("userId");

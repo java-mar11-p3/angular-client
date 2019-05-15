@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Candidate } from 'src/app/models/candidate';
 import { Router } from '@angular/router';
+import { MatButton } from '@angular/material';
 
 
 @Component({
@@ -10,10 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-candidates.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
-  listOfCandidates : Candidate[];
+
+  // @ViewChild('candidateId') canId: any;
+
+  listOfCandidates: Candidate[];
 
 
-  constructor(private service: GatewayService, private router: Router ) { }
+  constructor(private service: GatewayService, private router: Router) { }
 
   ngOnInit() {
     this.service.loadAllCandidates().subscribe(
@@ -25,14 +29,13 @@ export class AllCandidatesComponent implements OnInit {
         alert(error)
       }
     )
+    
   }
 
-  saveCandidateId(){
-    var inputValue = (<HTMLInputElement>document.getElementById("candidate-id")).value;
-    sessionStorage.setItem('candidateId', inputValue);
+  saveCandidateId(candidate: any) {
+    console.log(candidate.candidate_id);
+    sessionStorage.setItem("candidateId", null);
     this.router.navigateByUrl("createScreening");
-    
-  
   }
 
 }

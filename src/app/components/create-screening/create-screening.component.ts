@@ -18,12 +18,12 @@ export class CreateScreeningComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle('Screen Force - New Screening')
     let userId = localStorage.getItem("userId");
-    console.log(sessionStorage.getItem(userId))
+    console.log(userId);
     console.log(sessionStorage.getItem("candidateId"));
   }
 
   submit(){
-    this.screening.user_id = sessionStorage.getItem("userId");
+    this.screening.user_id = localStorage.getItem("userId");
     this.screening.candidate_id = sessionStorage.getItem("candidateId");
     this.service.createScreening(this.screening).subscribe(
       data => {
