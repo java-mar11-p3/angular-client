@@ -19,6 +19,7 @@ import { CreateScreeningComponent } from './components/create-screening/create-s
 import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component';
 import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component';
 import { CandidateProfileComponent } from './components/candidate-profile/candidate-profile.component';
+import { UpdateScreeningComponent } from './components/update-screening/update-screening.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CandidateProfileComponent } from './components/candidate-profile/candid
     CreateScreeningComponent,
     CreateCandidateComponent,
     AllCandidatesComponent,
-    CandidateProfileComponent
+    CandidateProfileComponent,
+    UpdateScreeningComponent
   ],
   imports: [
     BrowserModule,

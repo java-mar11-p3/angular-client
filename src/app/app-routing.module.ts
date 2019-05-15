@@ -7,7 +7,7 @@ import { CreateScreeningComponent } from './components/create-screening/create-s
 import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component'
 import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component'
 import { CandidateProfileComponent } from './components/candidate-profile/candidate-profile.component'
-
+import { UpdateScreeningComponent } from './components/update-screening/update-screening.component'
 //, canActivate: [AuthGuard]
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'createScreening', component: CreateScreeningComponent },
   { path: 'createCandidate', component: CreateCandidateComponent },
   { path: 'allCandidates', component: AllCandidatesComponent },
-  { path: 'candidateProfile', component: CandidateProfileComponent }
+  { path: 'candidateProfile', component: CandidateProfileComponent },
+  { path: 'updateScreening', component: UpdateScreeningComponent }
 ];
 
 @NgModule({
