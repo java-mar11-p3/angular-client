@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
 export class ScreeningService {
 
   //Path to api
-  readonly APP_PATH: string = 'http://localhost:7000/screeningservice/screenings';
+  private readonly APP_PATH: string = 'http://localhost:7000/screeningservice/screenings';
 
-  readonly options = {
+  private readonly options = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json'

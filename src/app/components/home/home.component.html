@@ -1,7 +1,5 @@
-
 <h1 style="color:white"> Welcome {{firstName}} !</h1>
-<a  mat-raised-button color='primary' routerLink="/createCandidate" >Create New Candidate</a>
-<button mat-raised-button color='primary' routerLink='/allCandidates'>View All Candidates</button>
+<a mat-raised-button color='primary' routerLink="/createCandidate">Create New Candidate</a>
 <div class='col-5 mt-5 ml-5 container-fluid' style='height: 200px;'>
   <mat-card class='col-8 h-75'>
     <mat-card-header>
@@ -13,4 +11,17 @@
     </mat-card-content>
   </mat-card>
 </div>
-<app-screening-list></app-screening-list>
+<mat-tab-group class='col-10 container-fluid'>
+  <mat-tab color='accent'>
+    <ng-template mat-tab-label>
+      Screenings
+    </ng-template>
+    <app-screening-list></app-screening-list>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Candidates
+    </ng-template>
+    <app-search></app-search>
+  </mat-tab>
+</mat-tab-group>
