@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatButtonToggleGroup, MatPaginator } from '@angular/material';
 import { User } from 'src/app/models/user';
-import { ScreeningListComponent } from '../screening-list/screening-list.component';
-import { MatButtonToggleGroup } from '@angular/material';
+import { AllCandidatesComponent } from '../all-candidates/all-candidates.component';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +13,8 @@ export class SearchComponent implements OnInit {
 
   @ViewChild('searchForm') searchForm: NgForm;
   @ViewChild('filterGroup') filterGroup: MatButtonToggleGroup;
-  @ViewChild(ScreeningListComponent) candidatesComponent: ScreeningListComponent;
+  @ViewChild(AllCandidatesComponent) candidatesComponent: AllCandidatesComponent;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public textFilter: string = '';
   public selectedUser: User;
@@ -21,11 +22,13 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    this.paginator.page.subscribe(
+      data => this.candidatesComponent.changePage(data['pageIndex']),
+      err => console.error(err)
+    );
   }
 
   public onSubmit() {
-    console.log(this.filterGroup.value);
     this.candidatesComponent.filterCandidates();
     this.textFilter = '';
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Screening } from 'src/app/models/screening';
 import { GatewayService } from 'src/app/services/gateway.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-screening-list',
@@ -9,22 +10,26 @@ import { GatewayService } from 'src/app/services/gateway.service';
 })
 export class ScreeningListComponent implements OnInit {
 
-  public screenings: Screening[];
+  public screenings: any;
   public testScreenings: Screening[] = [
     { screeningNotes: 'Jim' },
     { screeningNotes: 'Bill' },
     { screeningNotes: 'Ted' },
     { screeningNotes: 'Bob' }
   ];
+  public user: User = new User();
 
-  constructor(private service: GatewayService) { }
+  constructor(private service: GatewayService) {
+    this.user = JSON.parse(localStorage.getItem('USER')) || { id: 123 };
+  }
 
   ngOnInit() {
-    this.screenings = this.testScreenings;
+    this.service.loadScreeningsById(this.user.id).subscribe(
+      data => this.screenings = data,
+      err => console.error(err),
+      () => {
+        console.log(this.screenings);
+      }
+    );
   }
-
-  public filterCandidates() {
-
-  }
-
 }

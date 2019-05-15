@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       err => console.error(err),
       () => {
         if (this.message['email']) {
+          this.user = this.message;
           this.auth.login(this.user);
           localStorage.removeItem('USER_EMAIL');
           if (this.rememberMe) {

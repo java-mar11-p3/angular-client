@@ -12,7 +12,7 @@
     </mat-toolbar-row>
     <mat-divider></mat-divider>
     <mat-toolbar-row>
-      <mat-button-toggle-group #filterGroup='matButtonToggleGroup'>
+      <mat-button-toggle-group #filterGroup='matButtonToggleGroup' value='first'>
         <mat-button-toggle value='first'>First</mat-button-toggle>
         <mat-button-toggle value='last'>Last</mat-button-toggle>
         <mat-button-toggle value='both'>Both</mat-button-toggle>
@@ -20,6 +20,6 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <app-all-candidates [textFilter]='textFilter' [textFilterType]='filterGroup.value'></app-all-candidates>
-  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  <mat-paginator [length]="50" [pageSize]="5" [pageSizeOptions]="[5]">
   </mat-paginator>
 </div>

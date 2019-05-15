@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Candidate } from 'src/app/models/candidate';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./all-candidates.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
+
   listOfCandidates: Candidate[];
   @Input() public textFilter: string;
   @Input() public textFilterType: string;
@@ -18,13 +19,7 @@ export class AllCandidatesComponent implements OnInit {
   constructor(private service: GatewayService, private router: Router) { }
 
   ngOnInit() {
-    this.service.loadAllCandidates().subscribe(
-      data => {
-        this.listOfCandidates = data['content'];
-        console.log(data)
-      },
-      error => console.error(error)
-    )
+    this.changePage();
   }
 
   saveCandidateId() {
@@ -34,10 +29,6 @@ export class AllCandidatesComponent implements OnInit {
   }
 
   public filterCandidates() {
-    console.log('Test Filter Info: ', {
-      'textFilterType': this.textFilterType,
-      'textFilter': this.textFilter
-    });
     let temp: Candidate[] = [];
     this.listOfCandidates.forEach(
       (c) => {
@@ -46,8 +37,14 @@ export class AllCandidatesComponent implements OnInit {
       }
     );
 
-    console.log(temp);
     this.listOfCandidates = temp;
+  }
+
+  public changePage(pageIndex?: number) {
+    this.service.loadAllCandidates(pageIndex || 0).subscribe(
+      data => this.listOfCandidates = data['content'],
+      error => console.error(error)
+    )
   }
 
 }

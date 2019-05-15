@@ -30,8 +30,14 @@ export class GatewayService {
     return this.candidateService.createCandidate(candidate);
   }
 
-  /**Loads all known Candidates from DB */
-  public loadAllCandidates(): Observable<any> {
+  /**
+   * Loads all known Candidates from DB
+   * @param page Optional page number index for pagination
+   */
+  public loadAllCandidates(page?: number): Observable<any> {
+    if (page) {
+      return this.candidateService.loadAllCandidatesByPageNum(page);
+    }
     return this.candidateService.loadAllCandidates();
 
   }
