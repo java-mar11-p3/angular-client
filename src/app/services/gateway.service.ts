@@ -74,4 +74,11 @@ export class GatewayService {
   public loadScreeningsByCandidateId(candidateId): Observable<any>{
     return this.screeningService.getScreeningsByCandidateId(candidateId);
   }
+
+  public updateScreening(screening: Screening): Observable<any> {
+    return this.screeningService.updateScreening(screening);
+  }
+  public loadAScreening(): Observable<any> {
+    return this.screeningService.getAScreening();
+  }
 }

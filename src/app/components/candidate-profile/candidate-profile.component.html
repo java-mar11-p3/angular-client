@@ -1,20 +1,19 @@
-
+<br>
+<button mat-raised-button color='primary' (click)="return()">Return</button>
+<br>
+<br>
+<h1 style="color:white; align:text-center"> Viewing Profile of {{this.firstName}} {{this.lastName}}</h1>
 <table style="color:white" id="tableToView" class="table">
   <tr>
-    <th class="text-center">Candidate ID</th>
-    <th class="text-center">First Name</th>
-    <th class="text-center">Last Name</th>
-    <th class="text-center">Email</th>
-    <th class="text-center">Create New Screening</th>
-    <th class="text-center">View Profile</th>
+    <th class="text-center">Screening ID</th>
+    <th class="text-center">Score</th>
+    <th class="text-center">Notes</th>
+    <th class="text-center">Update</th>
   </tr>
 <tr *ngFor="let screening of listOfScreenings">
   <td class="text-center">{{ screening.id }}</td>
   <td class="text-center">{{ screening.screeningScore }}</td>
   <td class="text-center">{{ screening.screeningNotes }}</td>
   
-  <td class="text-center"> <button (click)="saveCandidateId(screening)">Create
-      New Screening</button></td>
-  <td class="text-center"><button (click)="viewCandidate(screening)">View Candidate Profile</button></td>
-</tr>
+  <td class="text-center"> <button mat-raised-button color='primary' (click)="updateScreening(screening)">Update Screening</button></td>
 </table>

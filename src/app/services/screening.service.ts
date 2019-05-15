@@ -37,4 +37,13 @@ export class ScreeningService {
   public getScreeningsByCandidateId(id: number): Observable<Object>{
     return this.http.get(this.APP_PATH + "/candidateId/" + id, this.options);
   }
+
+  public updateScreening(screening: Screening): Observable<Object> {
+    return this.http.put<any>(this.APP_PATH + "/" + sessionStorage.getItem("screeningId"), JSON.stringify(screening), this.options);
+  }
+
+
+  public getAScreening(): Observable<Object> {
+    return this.http.get<any>(this.APP_PATH + "/" + sessionStorage.getItem("screeningId"), this.options);
+  }
 }

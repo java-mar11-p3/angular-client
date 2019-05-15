@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Screening } from 'src/app/models/screening';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-candidate-profile',
@@ -10,11 +11,17 @@ import { Router } from '@angular/router';
 })
 export class CandidateProfileComponent implements OnInit {
   candidateId : number;
+  screening : Screening;
+  firstName : string;
+  lastName : string;
+
 
   listOfScreenings: Screening[];
-  constructor(private service: GatewayService, private router: Router) { }
+  constructor(private service: GatewayService, private router: Router, private _location: Location) { }
 
   ngOnInit() {
+    this.firstName = sessionStorage.getItem("candidateFirstName")
+    this.lastName = sessionStorage.getItem("candidateLastName")
     this.candidateId = JSON.parse(sessionStorage.getItem("candidateId"));
     this.service.loadScreeningsByCandidateId(this.candidateId).subscribe(
       data => {
@@ -22,6 +29,17 @@ export class CandidateProfileComponent implements OnInit {
       },
       error => console.error(error)
     )
+  }
+
+  updateScreening(screening){
+  
+    sessionStorage.setItem("screeningId", screening.id)
+    sessionStorage.setItem("candidateId", screening.candidateId)
+    this.router.navigateByUrl('updateScreening');
+
+  }
+  return(){
+    this._location.back();
   }
 
 }
