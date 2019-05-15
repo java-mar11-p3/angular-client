@@ -20,7 +20,7 @@ export class AllCandidatesComponent implements OnInit {
   ngOnInit() {
     this.service.loadAllCandidates().subscribe(
       data => {
-        this.listOfCandidates = data;
+        this.listOfCandidates = data['content'];
         console.log(data)
       },
       error => console.error(error)
