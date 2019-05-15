@@ -10,7 +10,8 @@ import { User } from 'src/app/models/user';
 })
 export class ScreeningListComponent implements OnInit {
 
-  public screenings: any;
+  public screenings: Screening[];
+  public candidateNames: string[];
   public testScreenings: Screening[] = [
     { screeningNotes: 'Jim' },
     { screeningNotes: 'Bill' },
@@ -29,6 +30,19 @@ export class ScreeningListComponent implements OnInit {
       err => console.error(err),
       () => {
         console.log(this.screenings);
+        if (this.screenings.length < 1) {
+          this.screenings[0] = {
+            screeningNotes: 'No Screenings found.'
+          }
+          return;
+        }
+        this.screenings.forEach(s => {
+          this.service.getCandidateById(s.candidate_id).subscribe(
+            data => this.candidateNames.push(data.first + ' ' + data.last),
+            err => console.error(err),
+            () => console.log(this.candidateNames)
+          );
+        });
       }
     );
   }
