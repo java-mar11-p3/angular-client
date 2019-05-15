@@ -11,10 +11,14 @@ import { Router } from '@angular/router';
 })
 export class UpdateScreeningComponent implements OnInit {
   public screening: Screening = new Screening();
+  firstName: string;
+  lastName: string;
 
   constructor(private _location: Location, private service: GatewayService, private router: Router) { }
 
   ngOnInit() {
+    this.firstName = sessionStorage.getItem("candidateFirstName")
+    this.lastName = sessionStorage.getItem("candidateLastName")
     this.service.loadAScreening().subscribe(
       data => {
         this.screening = data

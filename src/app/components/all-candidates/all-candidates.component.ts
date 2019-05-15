@@ -34,12 +34,16 @@ export class AllCandidatesComponent implements OnInit {
   saveCandidateId(candidate) {
     
     sessionStorage.setItem("candidateId", candidate.candidate_id)
+    sessionStorage.setItem("candidateFirstName", candidate.firstName)
+    sessionStorage.setItem("candidateLastName", candidate.lastName)
     this.router.navigateByUrl('createScreening');
     this.changePage();
   }
 
   viewCandidate(candidate) {
     sessionStorage.setItem("candidateId", candidate.candidate_id)
+    sessionStorage.setItem("candidateFirstName", candidate.firstName)
+    sessionStorage.setItem("candidateLastName", candidate.lastName)
     this.router.navigateByUrl('candidateProfile');
   }
 

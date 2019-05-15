@@ -1,5 +1,8 @@
-
-<button (click)="return()">Return</button>
+<br>
+<button mat-raised-button color='primary' (click)="return()">Return</button>
+<br>
+<br>
+<h1 style="color:white; align:text-center"> Viewing Profile of {{this.firstName}} {{this.lastName}}</h1>
 <table style="color:white" id="tableToView" class="table">
   <tr>
     <th class="text-center">Screening ID</th>
@@ -12,5 +15,5 @@
   <td class="text-center">{{ screening.screeningScore }}</td>
   <td class="text-center">{{ screening.screeningNotes }}</td>
   
-  <td class="text-center"> <button (click)="updateScreening(screening)">Update Screening</button></td>
+  <td class="text-center"> <button mat-raised-button color='primary' (click)="updateScreening(screening)">Update Screening</button></td>
 </table>

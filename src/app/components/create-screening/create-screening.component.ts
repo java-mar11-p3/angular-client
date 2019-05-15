@@ -11,12 +11,16 @@ import { Router } from '@angular/router';
 })
 export class CreateScreeningComponent implements OnInit {
   public screening: Screening = new Screening();
+  firstName : string
+  lastName : string
 
 
   constructor(private title: Title, private service: GatewayService, private router: Router) { }
 
   ngOnInit() {
     this.title.setTitle('Screen Force - New Screening')
+    this.firstName = sessionStorage.getItem("candidateFirstName")
+    this.lastName = sessionStorage.getItem("candidateLastName")
 
   }
 

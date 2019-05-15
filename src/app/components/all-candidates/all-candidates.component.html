@@ -1,5 +1,5 @@
 <h1 style="color:white">Viewing All Candidates</h1>
-<button mat-raised-button color='primary' routerLink='/home'>Return Home</button>
+
 
 <table style="color:white" id="tableToView" class="table">
   <tr>
@@ -15,9 +15,9 @@
     <td class="text-center">{{ candidate.firstName }}</td>
     <td class="text-center">{{ candidate.lastName }}</td>
     <td class="text-center">{{ candidate.email }}</td>
-    <td class="text-center"> <button (click)="saveCandidateId(candidate)">Create
+    <td class="text-center"> <button mat-raised-button color='primary' (click)="saveCandidateId(candidate)">Create
         New Screening</button></td>
-    <td class="text-center"><button (click)="viewCandidate(candidate)">View Candidate Profile</button></td>
+    <td class="text-center"><button mat-raised-button color='primary' (click)="viewCandidate(candidate)">View Candidate Profile</button></td>
   </tr>
 
 
