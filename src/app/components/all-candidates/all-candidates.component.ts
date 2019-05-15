@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { Candidate } from 'src/app/models/candidate';
 import { Router } from '@angular/router';
@@ -35,6 +35,7 @@ export class AllCandidatesComponent implements OnInit {
     
     sessionStorage.setItem("candidateId", candidate.candidate_id)
     this.router.navigateByUrl('createScreening');
+    this.changePage();
   }
 
   viewCandidate(candidate) {
@@ -43,10 +44,6 @@ export class AllCandidatesComponent implements OnInit {
   }
 
   public filterCandidates() {
-    console.log('Test Filter Info: ', {
-      'textFilterType': this.textFilterType,
-      'textFilter': this.textFilter
-    });
     let temp: Candidate[] = [];
     this.listOfCandidates.forEach(
       (c) => {
@@ -55,8 +52,14 @@ export class AllCandidatesComponent implements OnInit {
       }
     );
 
-    console.log(temp);
     this.listOfCandidates = temp;
+  }
+
+  public changePage(pageIndex?: number) {
+    this.service.loadAllCandidates(pageIndex || 0).subscribe(
+      data => this.listOfCandidates = data['content'],
+      error => console.error(error)
+    )
   }
 
 }

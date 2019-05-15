@@ -18,7 +18,7 @@ export class GatewayService {
    * Sends initial USer Login data to back-end to be verified.
    * @param user A stripped down user object containing only email and password
    */
-  public login(user: User): Observable<any> {
+  public login(user: User): Observable<Object> {
     return this.userService.userLogin(user);
   }
 
@@ -30,10 +30,24 @@ export class GatewayService {
     return this.candidateService.createCandidate(candidate);
   }
 
-  /**Loads all known Candidates from DB */
-  public loadAllCandidates(): Observable<any> {
+  /**
+   * Loads all known Candidates from DB
+   * @param page Optional page number index for pagination
+   */
+  public loadAllCandidates(page?: number): Observable<Candidate[]> {
+    if (page) {
+      return this.candidateService.loadAllCandidatesByPageNum(page);
+    }
     return this.candidateService.loadAllCandidates();
 
+  }
+
+  /**
+   * Returns the specific Candidate information based on ID number
+   * @param id Candidate Id Number
+   */
+  public getCandidateById(id: number): Observable<Candidate> {
+    return this.candidateService.getCandidateById(id);
   }
 
   /**
@@ -45,7 +59,7 @@ export class GatewayService {
   }
 
   //**Loads all known Screenings in DB */
-  public loadAllScreenings(): Observable<Object> {
+  public loadAllScreenings(): Observable<Screening[]> {
     return this.screeningService.getAllScreenings();
   }
 
@@ -53,7 +67,7 @@ export class GatewayService {
    * Loads all Screensings related to a specific User ID
    * @param id ID number of current User
    */
-  public loadScreeningsById(id: number): Observable<Object> {
+  public loadScreeningsById(id: number): Observable<Screening[]> {
     return this.screeningService.getScreeningsById(id);
   }
 

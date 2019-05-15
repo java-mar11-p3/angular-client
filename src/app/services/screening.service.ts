@@ -26,12 +26,12 @@ export class ScreeningService {
     return this.http.post<any>(this.APP_PATH, JSON.stringify(screening), this.options);
   }
 
-  public getAllScreenings(): Observable<Object> {
-    return this.http.get(this.APP_PATH, this.options);
+  public getAllScreenings(): Observable<Screening[]> {
+    return this.http.get<Screening[]>(this.APP_PATH, this.options);
   }
 
-  public getScreeningsById(id: number): Observable<Object> {
-    return this.http.get(this.APP_PATH + '/' + id, this.options);
+  public getScreeningsById(id: number): Observable<Screening[]> {
+    return this.http.get<Screening[]>(this.APP_PATH + '/' + id, this.options);
   }
 
   public getScreeningsByCandidateId(id: number): Observable<Object>{

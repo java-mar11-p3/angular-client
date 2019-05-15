@@ -21,11 +21,19 @@ export class CandidateService {
 
   constructor(private http: HttpClient) { }
 
-  public createCandidate(candidate: Candidate) {
+  public createCandidate(candidate: Candidate): Observable<Object> {
     return this.http.post<any>(this.APP_PATH, JSON.stringify(candidate), this.options);
   }
 
-  public loadAllCandidates() {
+  public loadAllCandidates(): Observable<Candidate[]> {
     return this.http.get<Candidate[]>(this.APP_PATH, this.options);
+  }
+
+  public loadAllCandidatesByPageNum(page: number): Observable<Candidate[]> {
+    return this.http.get<Candidate[]>(this.APP_PATH + '/page/' + page, this.options);
+  }
+
+  public getCandidateById(id: number): Observable<Candidate> {
+    return this.http.get<Candidate>(this.APP_PATH + '/' + id, this.options);
   }
 }
