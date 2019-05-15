@@ -5,7 +5,7 @@ import { LoginComponent } from './login.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from '../home/home.component';
 import { SearchComponent } from '../search/search.component';
-import { CandidatesComponent } from '../candidates/candidates.component';
+import { ScreeningListComponent } from '../screening-list/screening-list.component';
 
 
 describe('LoginComponent', () => {
@@ -18,7 +18,7 @@ describe('LoginComponent', () => {
         LoginComponent,
         HomeComponent,
         SearchComponent,
-        CandidatesComponent
+        ScreeningListComponent
       ],
       imports: [
         AngMaterialModule,

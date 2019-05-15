@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   public submitted: boolean = false;
   public rememberMe: boolean = false;
 
+  private message: Object = new Object();
+
   constructor(private auth: AuthService, private router: Router, private service: GatewayService, private title: Title) {
     if (localStorage.getItem('USER_EMAIL')) {
       this.user.email = localStorage.getItem('USER_EMAIL');
@@ -36,45 +38,24 @@ export class LoginComponent implements OnInit {
   public Login() {
     this.service.login(this.user).subscribe(
       data => {
-        if(data !== null && data.user_id > 0 )
-        {
-          localStorage.setItem("userId", data.user_id)
-          localStorage.setItem("firstName", data.firstName)
-          let userId = localStorage.getItem("userId");
-          let firstName = localStorage.getItem("firstName");
-          console.log("The user is " + firstName + " with id of " + userId);
-          console.log(data);
-          this.auth.login(this.user.email, this.user.password);
-          this.router.navigateByUrl('home')
+        this.message = data;
+      },
+      err => console.error(err),
+      () => {
+        console.log('Message', this.message);
+        if (this.message['first']) {
+          console.log('Message is User type', this.message);
+          // this.auth.login(this.user);
+          // localStorage.removeItem('USER_EMAIL');
+          // if (this.rememberMe) {
+          //   localStorage.setItem('USER_EMAIL', this.user.email);
+          // }
         }
         else {
-          console.group("no user!");
-          alert("Sorry. Invalid username or password")
+          console.log('Message is not User type', this.message)
         }
-
       }
-    )
-    //   data => console.log(data),
-    //   err => console.log(err),
-    //  () => console.log('Login Success')
-    //  );
-    
-
-   
-
-    localStorage.removeItem('USER_EMAIL');
-    if (this.rememberMe) {
-      localStorage.setItem('USER_EMAIL', this.user.email);
-    }
-
-    // this.auth.login(this.user.email, this.user.password);
-    // this.router.navigateByUrl('home');
-
-    // this.service.login(this.user).subscribe(
-    //   data => console.log(data),
-    //   err => console.log(err),
-    //   () => console.log('Login Success')
-    // );
+    );
   }
 
 }

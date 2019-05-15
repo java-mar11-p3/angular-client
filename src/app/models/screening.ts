@@ -1,9 +1,9 @@
 export class Screening {
 
-    constructor (public id?: string, 
-        public user_id?: string,
-        public candidate_id?: string, 
-        public screeningScore?: string, 
+    constructor (public id?: number, 
+        public user_id?: number,
+        public candidate_id?: number, 
+        public screeningScore?: number, 
         public screeningNotes?: string)
         {}
 }

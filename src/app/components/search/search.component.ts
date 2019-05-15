@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
-import { CandidatesComponent } from '../candidates/candidates.component';
+import { ScreeningListComponent } from '../screening-list/screening-list.component';
+import { MatButtonToggleGroup } from '@angular/material';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,8 @@ import { CandidatesComponent } from '../candidates/candidates.component';
 export class SearchComponent implements OnInit {
 
   @ViewChild('searchForm') searchForm: NgForm;
-  @ViewChild(CandidatesComponent) candidatesComponent: CandidatesComponent;
+  @ViewChild('filterGroup') filterGroup: MatButtonToggleGroup;
+  @ViewChild(ScreeningListComponent) candidatesComponent: ScreeningListComponent;
 
   public textFilter: string = '';
   public selectedUser: User;
@@ -23,7 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   public onSubmit() {
-
+    console.log(this.filterGroup.value);
     this.candidatesComponent.filterCandidates();
     this.textFilter = '';
   }

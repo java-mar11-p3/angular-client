@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CandidatesComponent } from './candidates.component';
+import { ScreeningListComponent } from './screening-list.component';
 import { AngMaterialModule } from 'src/app/modules/ang-material/ang-material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,8 +9,8 @@ import { HomeComponent } from '../home/home.component';
 import { SearchComponent } from '../search/search.component';
 
 describe('CandidatesComponent', () => {
-  let component: CandidatesComponent;
-  let fixture: ComponentFixture<CandidatesComponent>;
+  let component: ScreeningListComponent;
+  let fixture: ComponentFixture<ScreeningListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,7 +18,7 @@ describe('CandidatesComponent', () => {
         HomeComponent,
         LoginComponent,
         SearchComponent,
-        CandidatesComponent
+        ScreeningListComponent
       ],
       imports: [        
         AngMaterialModule,
@@ -31,7 +31,7 @@ describe('CandidatesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CandidatesComponent);
+    fixture = TestBed.createComponent(ScreeningListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
