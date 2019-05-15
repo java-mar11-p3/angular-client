@@ -1,9 +1,9 @@
 <div class='bg-light text-light col-10 container-fluid py-2'>
-  <mat-card *ngFor='let s of screenings' class='w-100 mb-2'>
+  <mat-card *ngFor='let s of screenings; let i = index' class='w-100 mb-2'>
     <mat-card-header>
       <button mat-flat-button>
         <mat-card-title>
-         
+          Name: {{candidateNames[i]}}
         </mat-card-title>
         <mat-card-content>
           <h3>Score: {{s.screeningScore}}</h3>

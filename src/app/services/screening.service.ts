@@ -31,7 +31,7 @@ export class ScreeningService {
   }
 
   public getScreeningsById(id: number): Observable<Screening[]> {
-    return this.http.get<Screening[]>(this.APP_PATH + '/' + id, this.options);
+    return this.http.get<Screening[]>(this.APP_PATH + '/userId/' + id, this.options);
   }
 
   public getScreeningsByCandidateId(id: number): Observable<Object>{

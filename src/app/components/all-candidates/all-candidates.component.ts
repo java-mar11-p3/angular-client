@@ -47,7 +47,7 @@ export class AllCandidatesComponent implements OnInit {
     let temp: Candidate[] = [];
     this.listOfCandidates.forEach(
       (c) => {
-        if (c.first.toLowerCase().includes(this.textFilter.toLowerCase()))
+        if (c.firstName.toLowerCase().includes(this.textFilter.toLowerCase()))
           temp.push(c);
       }
     );
