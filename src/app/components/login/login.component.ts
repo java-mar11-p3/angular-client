@@ -44,13 +44,14 @@ export class LoginComponent implements OnInit {
       err => console.error(err),
       () => {
         console.log('Message', this.message);
-        if (this.message['first']) {
+        if (this.message['email']) {
           console.log('Message is User type', this.message);
-          // this.auth.login(this.user);
-          // localStorage.removeItem('USER_EMAIL');
-          // if (this.rememberMe) {
-          //   localStorage.setItem('USER_EMAIL', this.user.email);
-          // }
+          this.auth.login(this.user);
+          localStorage.removeItem('USER_EMAIL');
+          this.router.navigateByUrl('home')
+          if (this.rememberMe) {
+            localStorage.setItem('USER_EMAIL', this.user.email);
+          }
         }
         else {
           console.log('Message is not User type', this.message)

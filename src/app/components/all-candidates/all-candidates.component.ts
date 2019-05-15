@@ -11,6 +11,7 @@ import { MatButton } from '@angular/material';
   styleUrls: ['./all-candidates.component.css']
 })
 export class AllCandidatesComponent implements OnInit {
+  
   listOfCandidates: Candidate[];
   @Input() public textFilter: string;
   @Input() public textFilterType: string;

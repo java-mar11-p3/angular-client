@@ -16,6 +16,6 @@ export class UserService {
 
   public userLogin(user: User) {
     const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*' }).set('content-type', 'application/json');
-    return this.http.post(this.APP_PATH + '/users/login', JSON.stringify(user), { headers });
+    return this.http.post('http://localhost:7000/userservice/users/login', JSON.stringify(user), { headers });
   }
 }
