@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Screening } from 'src/app/models/screening';
 import { User } from 'src/app/models/user';
+import { ScreeningService } from 'src/app/services/screening.service';
 
 @Component({
   selector: 'app-screening-list',
@@ -9,44 +10,23 @@ import { User } from 'src/app/models/user';
 })
 export class ScreeningListComponent implements OnInit {
 
-  @Input() public textFilter: string;
-  @Input() public textFilterType: string;
-
-  @Output() public selectedUserChange: EventEmitter<User> = new EventEmitter<User>();
-
-  public candidates: Screening[];
-  public testCandidates: Screening[] = [
+  public screenings: Screening[];
+  public testScreenings: Screening[] = [
     { screeningNotes: 'Jim' },
     { screeningNotes: 'Bill' },
     { screeningNotes: 'Ted' },
     { screeningNotes: 'Bob' }
   ];
 
-  constructor() { }
+  constructor(private service: ScreeningService) { }
 
   ngOnInit() {
-    this.candidates = this.testCandidates;
+    this.screenings = this.testScreenings;
+    
   }
 
   public filterCandidates() {
-    console.log('Test Filter Info: ', {
-      'textFilterType': this.textFilterType,
-      'textFilter': this.textFilter
-    });
-    let temp: Screening[] = [];
-    this.testCandidates.forEach(
-      (c) => {
-        if (c.screeningNotes.toLowerCase().includes(this.textFilter.toLowerCase()))
-          temp.push(c);
-      }
-    );
 
-    console.log(temp);
-    this.candidates = temp;
   }
 
-
-  public onSelect(user: User) {
-    this.selectedUserChange.emit(user);
-  }
 }

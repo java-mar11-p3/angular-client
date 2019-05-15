@@ -7,10 +7,11 @@ import { CreateScreeningComponent } from './components/create-screening/create-s
 import { CreateCandidateComponent } from './components/create-candidate/create-candidate.component'
 import { AllCandidatesComponent } from './components/all-candidates/all-candidates.component'
 
+//, canActivate: [AuthGuard]
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'createScreening', component: CreateScreeningComponent },
   { path: 'createCandidate', component: CreateCandidateComponent },
   { path: 'allCandidates', component: AllCandidatesComponent }

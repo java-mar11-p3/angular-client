@@ -1,4 +1,4 @@
-<div class='col-4 mt-5 pt-5 container-fluid' style='height: 500px;'>
+<div class='col-4 mt-5 pt-5 container-fluid' style='height: 550px;'>
   <mat-card class='h-75'>
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
@@ -21,6 +21,7 @@
           <mat-error *ngIf='password.invalid || !password.pristine'>Invalid password</mat-error>
         </mat-form-field>
         <mat-checkbox [(ngModel)]='rememberMe' name='rememberMe' #name='ngModel'>Remember me?</mat-checkbox>
+        <mat-error *ngIf='message.error'>{{message.error}}</mat-error>
       </form>
     </mat-card-content>
     <mat-card-actions class='mr-4' align='end'>
@@ -28,5 +29,3 @@
     </mat-card-actions>
   </mat-card>
 </div>
-
-
