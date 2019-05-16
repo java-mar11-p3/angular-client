@@ -6,20 +6,20 @@
     <mat-card-content class='pl-4 pr-5 align-items-center'>
       <form class='w-100' #screeningForm='ngForm'>
         <mat-form-field class='w-100' appearance='outline'>
-          <input matInput placeholder='score' [(ngModel)]='screening.screeningScore' name='score' #score='ngModel' required
-            pattern='^[1-9][0-9]?$|^100$' maxlength='3'>
-
+          <input matInput placeholder='score' [(ngModel)]='screening.screeningScore' name='score' #score='ngModel'
+            required pattern='^[1-9][0-9]?$|^100$' maxlength='3'>
+          <mat-hint align='start'>Score must be out of 100</mat-hint>
           <mat-error *ngIf='score.invalid || !score.pristine'>Score must be between 0 to 100</mat-error>
         </mat-form-field>
 
         <mat-form-field class='w-100 mt-4' appearance='outline'>
-          
+
           <textarea matInput type='text' placeholder='note' [(ngModel)]='screening.screeningNotes' name='note'
             #note='ngModel' required minlength='0' maxlength='250'></textarea>
 
           <mat-error *ngIf='note.invalid || !note.pristine'>Notes cannot be empty!</mat-error>
         </mat-form-field>
-       
+
       </form>
     </mat-card-content>
     <mat-card-actions class='mr-4' align='end'>
@@ -27,4 +27,4 @@
       <button mat-raised-button type='submit' color='primary' (click)='submit()'>Submit Screening</button>
     </mat-card-actions>
   </mat-card>
-</div>  
+</div>

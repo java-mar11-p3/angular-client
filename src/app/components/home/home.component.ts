@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   firstName : string;
   lastName: string;
 
-  constructor(private auth: AuthService, private route: Router, private title: Title) { }
+  constructor(private auth: AuthService, private router: Router, private title: Title) { }
 
   ngOnInit() {
     this.firstName = JSON.parse(localStorage.getItem("USER")).firstName
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com');
     this.title.setTitle('Screen Force - Home');
     if (!this.auth.isLoggedIn()) {
-      this.route.navigateByUrl('login');
+      this.router.navigateByUrl('login');
     }
 
     // this.searchComponent.candidatesComponent.selectedUserChange.subscribe(

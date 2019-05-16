@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'createScreening', component: CreateScreeningComponent },
-  { path: 'createCandidate', component: CreateCandidateComponent },
-  { path: 'allCandidates', component: AllCandidatesComponent },
-  { path: 'candidateProfile', component: CandidateProfileComponent },
-  { path: 'updateScreening', component: UpdateScreeningComponent }
+  { path: 'createScreening', component: CreateScreeningComponent, canActivate: [AuthGuard] },
+  { path: 'createCandidate', component: CreateCandidateComponent, canActivate: [AuthGuard] },
+  { path: 'allCandidates', component: AllCandidatesComponent, canActivate: [AuthGuard] },
+  { path: 'candidateProfile', component: CandidateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'updateScreening', component: UpdateScreeningComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
