@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.candidatesComponent.changePage(0);
     this.paginator.page.subscribe(
       data => this.candidatesComponent.changePage(data['pageIndex']),
       err => console.error(err)

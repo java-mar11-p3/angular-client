@@ -35,7 +35,8 @@ export class GatewayService {
    * @param page Optional page number index for pagination
    */
   public loadAllCandidates(page?: number): Observable<Candidate[]> {
-    if (page) {
+    console.log(page);
+    if (page >= 0) {
       return this.candidateService.loadAllCandidatesByPageNum(page);
     }
     return this.candidateService.loadAllCandidates();
@@ -71,7 +72,7 @@ export class GatewayService {
     return this.screeningService.getScreeningsById(id);
   }
 
-  public loadScreeningsByCandidateId(candidateId): Observable<any>{
+  public loadScreeningsByCandidateId(candidateId): Observable<any> {
     return this.screeningService.getScreeningsByCandidateId(candidateId);
   }
 

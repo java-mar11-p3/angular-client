@@ -39,7 +39,14 @@ export class LoginComponent implements OnInit {
 
   /**Handles logic related to User Login*/
   public Login() {
-
+    if (this.user.email === '' || this.user.email === null || this.user.email === undefined) {
+      this.message = { error: 'Please enter email.' };
+      return;
+    }
+    else if (this.user.password === '' || this.user.password === null || this.user.password === undefined) {
+      this.message = { error: 'Please enter password.' };
+      return;
+    }
     this.service.login(this.user).subscribe(
       data => this.message = data,
       err => console.error(err),

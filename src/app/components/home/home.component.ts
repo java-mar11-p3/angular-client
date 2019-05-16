@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('USER')) || new User(0, 'Default', 'McDefaultFace', 'default@test.com');
     this.title.setTitle('Screen Force - Home');
     if (!this.auth.isLoggedIn()) {
-      // this.route.navigateByUrl('login');
+      this.route.navigateByUrl('login');
     }
 
     // this.searchComponent.candidatesComponent.selectedUserChange.subscribe(

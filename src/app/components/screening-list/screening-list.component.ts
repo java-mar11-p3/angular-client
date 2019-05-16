@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Screening } from 'src/app/models/screening';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { User } from 'src/app/models/user';
+import { Candidate } from 'src/app/models/candidate';
 
 @Component({
   selector: 'app-screening-list',
@@ -27,7 +28,7 @@ export class ScreeningListComponent implements OnInit {
   }
 
   ngOnInit() {
-    let temp: any;
+    let temp: Candidate[];
     this.service.loadAllCandidates().subscribe(
       data => temp = data,
       err => console.error(err),
@@ -49,6 +50,15 @@ export class ScreeningListComponent implements OnInit {
               return;
             }
             console.log('Get All User Screenings: ', this.screenings);
+            this.screenings.forEach(screening => {
+              temp.forEach(candidate => {
+                if (screening.candidateId === candidate.candidate_id) {
+                  this.candidateNames.push(candidate.firstName + ' ' + candidate.lastName);
+                }
+              });
+            });
+
+            console.log('CandidateNames: ', this.candidateNames);
           }
         );
       }

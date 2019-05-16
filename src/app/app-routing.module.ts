@@ -12,7 +12,7 @@ import { UpdateScreeningComponent } from './components/update-screening/update-s
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'createScreening', component: CreateScreeningComponent },
   { path: 'createCandidate', component: CreateCandidateComponent },
   { path: 'allCandidates', component: AllCandidatesComponent },
