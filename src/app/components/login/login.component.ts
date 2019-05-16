@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("welcome!")
     this.title.setTitle('Screen Force - Login');
   }
 

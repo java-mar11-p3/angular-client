@@ -3,6 +3,7 @@ import { Screening } from 'src/app/models/screening';
 import { GatewayService } from 'src/app/services/gateway.service';
 import { User } from 'src/app/models/user';
 import { Candidate } from 'src/app/models/candidate';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-screening-list',
@@ -22,7 +23,7 @@ export class ScreeningListComponent implements OnInit {
   ];
   public user: User = new User();
 
-  constructor(private service: GatewayService) {
+  constructor(private service: GatewayService, private router: Router) {
     this.user = JSON.parse(localStorage.getItem('USER'));
     console.log(this.user);
   }
@@ -63,5 +64,11 @@ export class ScreeningListComponent implements OnInit {
         );
       }
     );
+  }
+  updateScreening(screening){
+  
+    sessionStorage.setItem("screeningId", screening.id)
+    sessionStorage.setItem("candidateId", screening.candidateId)
+    this.router.navigateByUrl('updateScreening');
   }
 }

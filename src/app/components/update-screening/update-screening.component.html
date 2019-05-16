@@ -1,7 +1,7 @@
-<div class='col-4 mt-5 pt-5 container-fluid' style='height: 500px;'>
+<div class='col-4 mt-5 pt-5 container-fluid' style='height: 525px;'>
   <mat-card class='h-75'>
     <mat-card-header>
-      <mat-card-title> Update a Screening for {{this.firstName}} {{this.lastName}}</mat-card-title>
+      <mat-card-title> Update Screening {{this.firstName}} {{this.lastName}}</mat-card-title>
     </mat-card-header>
     <mat-card-content class='pl-4 pr-5 align-items-center'>
       <form class='w-100' #screeningForm='ngForm'>
@@ -22,9 +22,9 @@
         <mat-error *ngIf='message.error'>{{message.error}}</mat-error>
       </form>
     </mat-card-content>
-    <mat-card-actions class='mr-4' align='end'>
-      <button mat-raised-button color='primary' (click)='return()'>Cancel</button>
-      <button mat-raised-button type='submit' color='primary' (click)='submit()'>Update Screening</button>
+    <mat-card-actions class='mt-2' align='end'>
+      <button mat-icon-button class='mt-2 mr-1 ml-1' (click)='return()'><mat-icon>cancel</mat-icon></button>
+      <button mat-icon-button type='submit' class='mt-2 ml-1' (click)='submit()'><mat-icon>done</mat-icon></button>
     </mat-card-actions>
   </mat-card>
 </div>

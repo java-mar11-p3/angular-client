@@ -1,16 +1,5 @@
-<h1 style="color:white"> Welcome {{firstName}} !</h1>
-<a mat-raised-button color='primary' routerLink="/createCandidate">Create New Candidate</a>
-<div class='col-5 mt-5 ml-5 container-fluid' style='height: 200px;'>
-  <mat-card class='col-8 h-75'>
-    <mat-card-header>
-      <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
-      <mat-card-subtitle>-{{user.email}}-</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class='pl-4 pr-5 align-items-center'>
+<h1 style="color:white"> Welcome {{firstName}} {{lastName}} !</h1>
 
-    </mat-card-content>
-  </mat-card>
-</div>
 <mat-tab-group class='col-10 container-fluid'>
   <mat-tab color='accent'>
     <ng-template mat-tab-label>

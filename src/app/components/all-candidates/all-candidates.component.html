@@ -1,4 +1,4 @@
-<h1 style="color:white">Viewing All Candidates</h1>
+<h1 style="color:white">Viewing Candidates</h1>
 
 
 <table style="color:white" id="tableToView" class="table">
@@ -15,9 +15,12 @@
     <td class="text-center">{{ candidate.firstName }}</td>
     <td class="text-center">{{ candidate.lastName }}</td>
     <td class="text-center">{{ candidate.email }}</td>
-    <td class="text-center"> <button mat-raised-button color='primary' (click)="saveCandidateId(candidate)">Create
-        New Screening</button></td>
-    <td class="text-center"><button mat-raised-button color='primary' (click)="viewCandidate(candidate)">View Candidate Profile</button></td>
+    <td class="text-center"> <button mat-icon-button (click)="saveCandidateId(candidate)">
+        <mat-icon>add_circle_outline</mat-icon>
+      </button></td>
+    <td class="text-center"><button mat-icon-button (click)="viewCandidate(candidate)">
+        <mat-icon>perm_identity</mat-icon>
+      </button></td>
   </tr>
 
 

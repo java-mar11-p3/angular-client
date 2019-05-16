@@ -41,7 +41,6 @@ export class UpdateScreeningComponent implements OnInit {
       return;
     }
     this.screening.userId = JSON.parse(localStorage.getItem("USER")).user_id;
-    console.log(this.screening.userId)
     this.screening.candidateId = +sessionStorage.getItem("candidateId");
     this.service.updateScreening(this.screening).subscribe(
       data => {},

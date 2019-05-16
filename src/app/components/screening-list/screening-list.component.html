@@ -7,9 +7,16 @@
         </mat-card-title>
         <mat-card-content>
           <h3>Score: {{s.screeningScore}}</h3>
-          <p>{{s.screeningNotes}}</p>
+          <div *ngIf='s.screeningNotes'>
+            {{s.screeningNotes}}
+          </div>
         </mat-card-content>
       </button>
     </mat-card-header>
+    <mat-card-actions align='end'>
+      <button mat-icon-button class='mr-2' (click)="updateScreening(s)">
+        <mat-icon>border_color</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

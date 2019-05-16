@@ -1,5 +1,5 @@
 <br>
-<button mat-raised-button color='primary' (click)="return()">Return</button>
+<button mat-raised-button color='primary' class='ml-4' (click)="return()">< Return</button>
 <br>
 <br>
 <h1 style="color:white; align:text-center"> Viewing Profile of {{this.firstName}} {{this.lastName}}</h1>
@@ -15,5 +15,5 @@
   <td class="text-center">{{ screening.screeningScore }}</td>
   <td class="text-center">{{ screening.screeningNotes }}</td>
   
-  <td class="text-center"> <button mat-raised-button color='primary' (click)="updateScreening(screening)">Update Screening</button></td>
+  <td class="text-center"> <button mat-icon-button color='primary' (click)="updateScreening(screening)"><mat-icon>border_color</mat-icon></button></td>
 </table>
